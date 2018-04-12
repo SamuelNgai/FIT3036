@@ -9,7 +9,7 @@ import math
 root = Tk()
 
 content = ttk.Frame(root)
-frame = ttk.Frame(content, borderwidth=5, relief="sunken", width=400, height=200)
+#frame = ttk.Frame(content, borderwidth=5, relief="sunken", width=400, height=200)
 
 titleLabel = ttk.Label(content, text="Road Surface Area Estimate")
 latLabel = ttk.Label(content, text="Latitude")
@@ -53,6 +53,7 @@ def calcArea(latVar, longVar, streetsVar, mainRoadsVar, freewaysVar):
 
 	global estVar
 	estVar = int(pixelCount/mpp)
+	estButton["text"] = estVar
 	print(estVar)
 
 
@@ -66,17 +67,17 @@ estLabel = ttk.Label(content, textvariable=estVar)
 estButton = ttk.Button(text="Estimate", command=lambda: calcArea(latVar.get(), longVar.get(), streetsVar.get(), mainRoadsVar.get(), freewaysVar.get()))
 
 content.grid(column=0, row=0)
-frame.grid(column=0, row=0, columnspan=2, rowspan=9)
+#frame.grid(column=0, row=0, columnspan=2, rowspan=9)
 titleLabel.grid(column=0, row=0, columnspan=3)
 desLabel.grid(column=1, row=1)
 longLabel.grid(column=0, row=2)
 latLabel.grid(column=0, row=3)
 long.grid(column=1, row=2, columnspan=2)
 lat.grid(column=1, row=3, columnspan=2)
-streets.grid(column=1, row=4)
-mainRoads.grid(column=1, row=5)
-freeways.grid(column=1, row=7)
-estButton.grid(column=1, row=8)
+streets.grid(column=0, row=4)
+mainRoads.grid(column=0, row=5)
+freeways.grid(column=0, row=7)
+estButton.grid(column=0, row=8)
 estLabel.grid(column=1, row=9)
 
 root.mainloop()
